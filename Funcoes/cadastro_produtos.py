@@ -1,6 +1,6 @@
 import pyodbc
 
-from ConexaoBancoDados import BancoDeDados
+from conexao_banco_dados import BancoDeDados
 
 bancoDeDados = BancoDeDados()
 
