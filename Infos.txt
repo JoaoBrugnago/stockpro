@@ -1,0 +1,15 @@
+Comandos sql server:
+
+Para inserir valores nas tabelas:
+INSERT INTO produtos (prdcode, prdnome, prdundmedida)
+VALUES ();
+
+Tabela estendida:
+select c.cmpcode, 
+		c.prdcode, 
+		p.prdnome
+from 
+	compras c 
+INNER JOIN
+	produtos p 
+	on p.prdcode = c.prdcode;
