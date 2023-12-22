@@ -1,7 +1,0 @@
-create_table_query = '''
-CREATE TABLE produtos (
-    prdcode INT PRIMARY KEY,
-    prdnome NVARCHAR(255),
-    prdundmedida NVARCHAR(50)
-)
-'''
