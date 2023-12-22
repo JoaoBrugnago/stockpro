@@ -8,14 +8,23 @@ class ProximoProduto:
     self.conn_str = bancoDeDados.conn_str
 
   def proximoValor(self):
-    conn = pyodbc.connect(self.conn_str)
-    cursor = conn.cursor()
+    conn = None
+    try:
+      conn = pyodbc.connect(self.conn_str)
+      cursor = conn.cursor()
 
-    select_ultimo_prdcode = 'SELECT TOP 1 prdcode FROM produtos ORDER BY prdcode DESC'
-    cursor.execute(select_ultimo_prdcode)
-    resultado = cursor.fetchone()
+      select_ultimo_prdcode = 'SELECT TOP 1 prdcode FROM produtos ORDER BY prdcode DESC'
+      cursor.execute(select_ultimo_prdcode)
+      resultado = cursor.fetchone()
 
-    PrdCode = int(resultado[0]) + 1 if resultado else 1
-    conn.close()
+      PrdCode = int(resultado[0]) + 1 if resultado else 1
+      conn.close()
+      
+      return PrdCode
     
-    return PrdCode
+    except Exception as e:
+      print(f'Erro: {e}')
+
+    finally:
+      if conn:
+        conn.close()

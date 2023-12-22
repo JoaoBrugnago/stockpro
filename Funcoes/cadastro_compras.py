@@ -36,7 +36,6 @@ class CadastroCompras:
         PrdCode   = proximoProduto.proximoValor()
         produto   = cadastroProduto(PrdCode, self.nomeProduto.strip(), self.unidadeMedida)
         resultado = produto.cadastrarProduto()
-        print(resultado)
 
     conn.close()
     return PrdCode
@@ -48,7 +47,7 @@ class CadastroCompras:
     conn = pyodbc.connect(self.conn_str)
     cursor = conn.cursor()
 
-    # Instrução SQL para inserir informações de venda
+    # Instrução SQL para inserir informações de compra
     inserirCompra = '''
     INSERT INTO compras (cmpcode, prdcode, prdnome, undcode, cmpdatcadastro, cmpqtdprodutos, cmpvalunitario)
     VALUES (?, ?, ?, ?, ?, ?, ?)
