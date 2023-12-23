@@ -1,0 +1,51 @@
+<GerenciadorTelas>:
+  PrimeiraTela:
+    name: "primeiratela"
+  SegundaTela:
+    name: "segundatela"
+
+<PrimeiraTela>:
+  canvas:
+    Color:
+      rgba: (244/255, 219/255, 1/255, 1)
+    Rectangle:
+      pos: self.pos
+      size: self.size
+
+  BoxLayout:
+    orientation: "vertical"
+    spacing: 30
+    padding: 30, 20
+
+    BoxLayout:
+      orientation: "vertical"
+      spacing: 2
+      Image:
+        source: "./dados/stockpro_logo.png"
+      Label:
+        text: "Sistema de gerenciamento"
+        color: 0, 0, 0, 1
+        bold: True
+        font_size: 18
+
+    BoxLayout:
+      orientation: "vertical"
+      spacing: 20
+      BotaoMenu:
+        text: "Compras"
+      BotaoMenu:
+        text: "Vendas"
+      BotaoMenu:
+        text: "Receitas"
+
+<BotaoMenu@ButtonBehavior+Label>:
+  canvas.before:
+    Color:
+      rgba: (75/255, 75/255, 75/255, 1)
+    RoundedRectangle:
+      pos: self.pos
+      size: self.size
+      radius: [10]
+
+  bold: True
+  font_size: 18
