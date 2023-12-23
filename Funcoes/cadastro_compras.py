@@ -1,10 +1,10 @@
 import pyodbc
 from datetime import datetime
 
-from conexao_banco_dados import BancoDeDados
-from retorna_proximo_numero_produto import ProximoProduto
-from retorna_proximo_numero_compra import ProximaCompra
-from cadastro_produtos import CadastroProdutos
+from .conexao_banco_dados import BancoDeDados
+from .retorna_proximo_numero_produto import ProximoProduto
+from .retorna_proximo_numero_compra import ProximaCompra
+from .cadastro_produtos import CadastroProdutos
 
 bancoDeDados    = BancoDeDados()
 proximoProduto  = ProximoProduto()
