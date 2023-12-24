@@ -5,19 +5,17 @@ from kivy.core.window import Window
 
 Window.size = (400, 600)
 
-class GerenciadorTelas(ScreenManager):
+class Manager(ScreenManager):
   pass
 
-class PrimeiraTela(Screen):
+class Menu(Screen):
   pass
 
-class SegundaTela(Screen):
+class Compras(Screen):
   pass
 
 class MyApp(App):
   def build(self):
-    return GerenciadorTelas()
+    return Manager()
   
 MyApp().run()
-
-# https://www.youtube.com/watch?v=hh41Rduyaxw&ab_channel=Mundoinovador

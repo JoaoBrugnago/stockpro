@@ -1,10 +1,10 @@
-<GerenciadorTelas>:
-  PrimeiraTela:
-    name: "primeiratela"
-  SegundaTela:
-    name: "segundatela"
+<Manager>:
+  Menu:
+    name: "Menu"
+  Compras:
+    name: "Compras"
 
-<PrimeiraTela>:
+<Menu>:
   canvas:
     Color:
       rgba: (244/255, 219/255, 1/255, 1)
@@ -15,7 +15,7 @@
   BoxLayout:
     orientation: "vertical"
     spacing: 30
-    padding: 30, 20
+    padding: root.width * 0.10, root.height * 0.05
 
     BoxLayout:
       orientation: "vertical"
@@ -31,14 +31,53 @@
     BoxLayout:
       orientation: "vertical"
       spacing: 20
-      BotaoMenu:
+      ButtonMenu:
         text: "Compras"
-      BotaoMenu:
+        on_release: 
+          app.root.current = "Compras"
+          app.root.transition.direction = "left"
+      ButtonMenu:
         text: "Vendas"
-      BotaoMenu:
+      ButtonMenu:
         text: "Receitas"
 
-<BotaoMenu@ButtonBehavior+Label>:
+<Compras>:
+  canvas:
+    Color:
+      rgba: (244/255, 219/255, 1/255, 1)
+    Rectangle:
+      pos: self.pos
+      size: self.size
+
+  BoxLayout:
+    orientation: "vertical"
+    spacing: 30
+    padding: root.width * 0.10, root.height * 0.05
+
+    BoxLayout:
+      orientation: "vertical"
+      spacing: 30
+      Image:
+        source: "./dados/stockpro_logo.png"
+      ButtonMenu:
+        text: "Nova compra"
+
+    BoxLayout:
+      orientation: "vertical"
+      spacing: 30
+
+      Label:
+        text: "Relação de compras"
+        color: 0, 0, 0, 1
+        font_size: 18
+      ButtonMenu:
+        text: "Voltar"
+        on_release:
+          app.root.current = "Menu"
+          app.root.transition.direction = "right"
+
+
+<ButtonMenu@ButtonBehavior+Label>:
   canvas.before:
     Color:
       rgba: (75/255, 75/255, 75/255, 1)
